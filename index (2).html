@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Trousse Calme — Bien voyager, bien s'organiser</title>
+<meta name="description" content="Les trouvailles qui simplifient la routine beauté. Sélections voyage, organisation et accessoires pratiques.">
+
+<!-- FAVICON SVG inline -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23B07A4F'/><text x='16' y='21' font-family='Georgia,serif' font-size='12' font-weight='400' fill='%23F5F1EB' text-anchor='middle'>TC</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --linen: #F5F1EB;
+    --linen-dark: #EAE4DA;
+    --terra: #B07A4F;
+    --terra-light: #D4B89A;
+    --terra-dark: #6B5A4E;
+    --sage: #8A9E8C;
+    --slate: #2B2522;
+    --slate-mid: #6B5A4E;
+    --slate-light: #9C8E88;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--linen); color: var(--slate); font-family: var(--sans); font-weight: 300; line-height: 1.7; font-size: 16px; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--linen); border-bottom: 0.5px solid var(--linen-dark); padding: 0 2.5rem; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--serif); font-size: 19px; font-weight: 300; color: var(--slate); text-decoration: none; }
+  .nav-logo em { font-style: italic; color: var(--terra); }
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-link { font-size: 11px; letter-spacing: 0.1em; color: var(--slate-mid); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .nav-link:hover { color: var(--terra); }
+  .nav-lang { font-size: 10px; letter-spacing: 0.1em; color: var(--slate-light); cursor: pointer; background: none; border: 0.5px solid var(--linen-dark); padding: 4px 10px; border-radius: 20px; font-family: var(--sans); transition: all 0.2s; }
+  .nav-lang:hover { border-color: var(--terra); color: var(--terra); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 5rem 2.5rem 4rem; gap: 4rem; max-width: 1100px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: 0.22em; color: var(--terra); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; animation: fadeUp 0.7s ease both; }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 0.5px; background: var(--terra); display: block; }
+  .hero-title { font-family: var(--serif); font-size: clamp(38px, 5vw, 62px); font-weight: 300; color: var(--slate); line-height: 1.15; margin-bottom: 1.5rem; animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-title em { font-style: italic; color: var(--terra); }
+  .hero-sub { font-size: 15px; color: var(--slate-mid); line-height: 1.8; margin-bottom: 0.5rem; animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-sub-en { font-size: 13px; color: var(--terra); font-style: italic; margin-bottom: 2.5rem; display: block; animation: fadeUp 0.7s 0.25s ease both; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--terra); color: var(--linen); font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 13px 26px; border-radius: 2px; transition: background 0.2s; animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-cta:hover { background: var(--terra-dark); }
+  .hero-right { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; animation: fadeUp 0.9s 0.2s ease both; }
+  .hero-tile { border-radius: 8px; padding: 1.75rem 1.5rem; display: flex; flex-direction: column; justify-content: flex-end; min-height: 160px; }
+  .hero-tile:nth-child(1) { background: var(--terra); grid-row: span 2; }
+  .hero-tile:nth-child(2) { background: var(--linen-dark); }
+  .hero-tile:nth-child(3) { background: var(--sage); opacity: 0.85; }
+  .tile-num { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .hero-tile:nth-child(1) .tile-num { color: rgba(245,241,235,0.6); }
+  .hero-tile:nth-child(2) .tile-num { color: var(--slate-light); }
+  .hero-tile:nth-child(3) .tile-num { color: rgba(245,241,235,0.7); }
+  .tile-text { font-family: var(--serif); font-weight: 300; line-height: 1.4; }
+  .hero-tile:nth-child(1) .tile-text { color: var(--linen); font-size: 20px; }
+  .hero-tile:nth-child(2) .tile-text { color: var(--slate); font-size: 16px; }
+  .hero-tile:nth-child(3) .tile-text { color: var(--linen); font-size: 16px; }
+
+  /* ARTICLES */
+  .articles { padding: 6rem 2.5rem; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; width: 20px; height: 0.5px; background: var(--terra); display: block; }
+  .section-title { font-family: var(--serif); font-size: clamp(26px, 3vw, 36px); font-weight: 300; color: var(--slate); line-height: 1.2; margin-bottom: 0.4rem; }
+  .section-title em { font-style: italic; color: var(--terra); }
+  .section-title-en { font-size: 12px; color: var(--slate-light); font-style: italic; margin-bottom: 2.5rem; display: block; }
+  .articles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--linen-dark); border: 1px solid var(--linen-dark); border-radius: 8px; overflow: hidden; }
+
+  /* CARD */
+  .article-card { background: var(--linen); color: inherit; transition: background 0.2s; display: flex; flex-direction: column; cursor: pointer; overflow: hidden; }
+  .article-card:hover { background: #FAF7F2; }
+
+  /* CARD VISUAL — no emojis, numbers only */
+  .card-visual { height: 90px; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 1rem 1.25rem; }
+  .card-visual.v1 { background: linear-gradient(135deg, #B07A4F 0%, #C49070 100%); }
+  .card-visual.v2 { background: linear-gradient(135deg, #7A6355 0%, #B07A4F 100%); }
+  .card-visual.v3 { background: linear-gradient(135deg, #8A9E8C 0%, #6B8570 100%); }
+  .card-visual.v4 { background: linear-gradient(135deg, #9A806A 0%, #8A9E8C 80%); }
+  .card-visual.v5 { background: linear-gradient(135deg, #6B5A4E 0%, #B07A4F 100%); }
+  .card-visual.v6 { background: linear-gradient(135deg, #5A4E48 0%, #8A7060 100%); }
+  .card-visual-num { font-family: var(--serif); font-size: 52px; font-weight: 300; color: rgba(245,241,235,0.18); line-height: 1; position: absolute; bottom: -8px; right: 12px; }
+  .card-visual-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,241,235,0.7); }
+
+  .card-body { padding: 1.5rem 1.75rem; display: flex; flex-direction: column; flex: 1; }
+  .article-num { font-size: 10px; letter-spacing: 0.15em; color: var(--terra); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
+  .article-num::after { content: ''; flex: 1; height: 0.5px; background: var(--linen-dark); }
+  .article-title { font-family: var(--serif); font-size: 17px; font-weight: 300; color: var(--slate); line-height: 1.4; margin-bottom: 0.4rem; }
+  .article-title-en { font-size: 11px; font-style: italic; color: var(--terra); margin-bottom: 0.75rem; display: block; }
+  .article-excerpt { font-size: 12px; color: var(--slate-mid); line-height: 1.7; margin-bottom: 1rem; flex: 1; }
+  .article-read { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terra); display: flex; align-items: center; gap: 6px; margin-top: auto; transition: gap 0.2s; background: none; border: none; cursor: pointer; font-family: var(--sans); padding: 0; }
+  .article-read::after { content: '→'; }
+  .article-card:hover .article-read { gap: 10px; }
+
+  /* MODAL */
+  .article-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(43,37,34,0.55); backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 2rem; }
+  .article-overlay.open { display: flex; }
+  .article-modal { background: var(--linen); max-width: 700px; width: 100%; max-height: 88vh; overflow-y: auto; border-radius: 10px; position: relative; }
+  .modal-close { position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; font-size: 18px; cursor: pointer; color: var(--slate-light); z-index: 10; transition: color 0.2s; font-family: var(--sans); }
+  .modal-close:hover { color: var(--terra); }
+
+  .modal-visual { height: 130px; display: flex; align-items: flex-end; padding: 1.5rem 2rem; position: relative; border-radius: 10px 10px 0 0; overflow: hidden; }
+  .modal-visual-num { font-family: var(--serif); font-size: 80px; font-weight: 300; color: rgba(245,241,235,0.15); line-height: 1; position: absolute; right: 1.5rem; bottom: -10px; }
+  .modal-visual-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,241,235,0.65); }
+
+  .modal-content { padding: 2rem 2.5rem 2.5rem; }
+  .modal-num { font-size: 10px; letter-spacing: 0.15em; color: var(--terra); margin-bottom: 0.5rem; display: block; }
+  .modal-title { font-family: var(--serif); font-size: 26px; font-weight: 300; color: var(--slate); line-height: 1.3; margin-bottom: 0.3rem; }
+  .modal-title-en { font-size: 12px; font-style: italic; color: var(--terra); margin-bottom: 1.5rem; display: block; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--linen-dark); }
+  .modal-intro { font-size: 15px; color: var(--slate-mid); line-height: 1.9; margin-bottom: 1.5rem; }
+  .modal-list { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .modal-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--slate-mid); line-height: 1.7; }
+  .modal-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--terra); flex-shrink: 0; margin-top: 10px; }
+  .modal-list li strong { color: var(--slate); font-weight: 500; }
+  .modal-outro { font-size: 14px; color: var(--slate-mid); line-height: 1.9; font-style: italic; margin-bottom: 1.5rem; }
+
+  .modal-summary { background: var(--linen-dark); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; border-left: 2px solid var(--terra); }
+  .modal-summary-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 1rem; display: block; }
+  .modal-summary-points { display: flex; flex-direction: column; gap: 0.6rem; }
+  .modal-summary-point { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--slate); line-height: 1.5; }
+  .summary-num { font-family: var(--serif); font-size: 22px; color: var(--terra); font-weight: 300; line-height: 1; flex-shrink: 0; margin-top: -2px; }
+
+  .modal-accessories { background: var(--linen); border: 0.5px solid var(--linen-dark); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+  .modal-accessories-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.75rem; display: block; }
+  .accessories-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .acc-tag { font-size: 11px; color: var(--slate-mid); background: var(--linen-dark); padding: 4px 10px; border-radius: 20px; }
+  .modal-affiliate { font-size: 11px; color: var(--slate-light); font-style: italic; line-height: 1.7; }
+
+  /* PINTEREST */
+  .pinterest-section { background: var(--slate); padding: 5rem 2.5rem; text-align: center; }
+  .pin-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra-light); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 12px; opacity: 0.7; }
+  .pin-eyebrow::before, .pin-eyebrow::after { content: ''; width: 30px; height: 0.5px; background: var(--terra-light); display: block; }
+  .pin-title { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); font-weight: 300; color: var(--linen); margin-bottom: 0.4rem; }
+  .pin-title em { font-style: italic; color: var(--terra-light); }
+  .pin-title-en { font-size: 13px; font-style: italic; color: var(--slate-light); margin-bottom: 1.75rem; display: block; }
+  .pin-desc { font-size: 14px; color: var(--slate-light); max-width: 380px; margin: 0 auto 2.5rem; line-height: 1.8; }
+  .pin-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--terra); color: var(--linen); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 13px 26px; border-radius: 2px; font-family: var(--sans); transition: background 0.2s; }
+  .pin-btn:hover { background: var(--terra-dark); }
+
+  /* DISCLOSURE */
+  .disclosure { padding: 3rem 2.5rem; max-width: 680px; margin: 0 auto; text-align: center; }
+  .disclosure-inner { border-top: 0.5px solid var(--linen-dark); padding-top: 2rem; }
+  .disclosure-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 1rem; display: block; }
+  .disclosure-text { font-size: 11px; color: var(--slate-light); line-height: 1.8; }
+
+  /* FOOTER */
+  footer { background: var(--slate); padding: 2.5rem 2.5rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: var(--serif); font-size: 18px; font-weight: 300; color: var(--linen); }
+  .footer-logo em { font-style: italic; color: var(--terra-light); }
+  .footer-center { text-align: center; }
+  .footer-sub { font-size: 10px; color: var(--slate-light); letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .footer-contact { font-size: 12px; color: var(--terra-light); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .footer-contact:hover { color: var(--linen); }
+  .footer-contact::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--terra); display: inline-block; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 6rem; gap: 2.5rem; }
+    .hero-right { display: none; }
+    .articles-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1.25rem; }
+    .articles { padding: 4rem 1.25rem; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .nav-link { display: none; }
+    .modal-content { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">La Trousse <em>Calme</em></a>
+  <div class="nav-right">
+    <a href="#articles" class="nav-link">Guides</a>
+    <a href="#pinterest" class="nav-link">Pinterest</a>
+    <button class="nav-lang" onclick="toggleLang()">FR / EN</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Beauté · Voyage · Organisation</p>
+    <h1 class="hero-title">Bien voyager,<br><em>bien s'organiser.</em></h1>
+    <p class="hero-sub">Les trouvailles qui simplifient vraiment la routine beauté — pour partir plus sereinement et garder une routine beauté mieux organisée.</p>
+    <span class="hero-sub-en">The finds that genuinely simplify your beauty routine — travel lighter, stay organised.</span>
+    <a href="#articles" class="hero-cta">Voir les guides →</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-tile">
+      <span class="tile-num">Voyage</span>
+      <p class="tile-text">Partir sans laisser ses soins derrière</p>
+    </div>
+    <div class="hero-tile">
+      <span class="tile-num">Organisation</span>
+      <p class="tile-text">Trouver du premier coup</p>
+    </div>
+    <div class="hero-tile">
+      <span class="tile-num">Sélections</span>
+      <p class="tile-text">Des objets qui tiennent leurs promesses</p>
+    </div>
+  </div>
+</section>
+
+<section class="articles" id="articles">
+  <div class="section-label">Guides & Sélections</div>
+  <h2 class="section-title">Les trouvailles <em>qui changent tout</em></h2>
+  <span class="section-title-en">Practical guides and curated picks for a simpler beauty routine</span>
+
+  <div class="articles-grid">
+    <div class="article-card" onclick="openArticle(0)">
+      <div class="card-visual v1">
+        <span class="card-visual-label">Voyage · Essentiels</span>
+        <span class="card-visual-num">01</span>
+      </div>
+      <div class="card-body">
+        <span class="article-num">01</span>
+        <h3 class="article-title">5 essentiels beauté pour voyager léger</h3>
+        <span class="article-title-en">5 beauty essentials for light travel</span>
+        <p class="article-excerpt">Ce qu'on emporte vraiment — et ce qu'on peut enfin laisser à la maison.</p>
+        <button class="article-read">Lire</button>
+      </div>
+    </div>
+
+    <div class="article-card" onclick="openArticle(1)">
+      <div class="card-visual v2">
+        <span class="card-visual-label">Voyage · Anti-fuite</span>
+        <span class="card-visual-num">02</span>
+      </div>
+      <div class="card-body">
+        <span class="article-num">02</span>
+        <h3 class="article-title">Comment éviter les fuites dans sa trousse beauté</h3>
+        <span class="article-title-en">How to stop leaks in your beauty bag</span>
+        <p class="article-excerpt">Des solutions concrètes pour que ça arrive beaucoup moins souvent.</p>
+        <button class="article-read">Lire</button>
+      </div>
+    </div>
+
+    <div class="article-card" onclick="openArticle(2)">
+      <div class="card-visual v3">
+        <span class="card-visual-label">Voyage · Protection</span>
+        <span class="card-visual-num">03</span>
+      </div>
+      <div class="card-body">
+        <span class="article-num">03</span>
+        <h3 class="article-title">Préserver ses flacons en verre en voyage</h3>
+        <span class="article-title-en">Keeping glass bottles safe while travelling</span>
+        <p class="article-excerpt">Les accessoires qui font la différence pour les contenants fragiles.</p>
+        <button class="article-read">Lire</button>
+      </div>
+    </div>
+
+    <div class="article-card" onclick="openArticle(3)">
+      <div class="card-visual v4">
+        <span class="card-visual-label">Routine · Minimaliste</span>
+        <span class="card-visual-num">04</span>
+      </div>
+      <div class="card-body">
+        <span class="article-num">04</span>
+        <h3 class="article-title">Routine skincare minimaliste en déplacement</h3>
+        <span class="article-title-en">A minimalist skincare routine on the go</span>
+        <p class="article-excerpt">Réduire sans renoncer à l'essentiel de sa routine.</p>
+        <button class="article-read">Lire</button>
+      </div>
+    </div>
+
+    <div class="article-card" onclick="openArticle(4)">
+      <div class="card-visual v5">
+        <span class="card-visual-label">Organisation · Maquillage</span>
+        <span class="card-visual-num">05</span>
+      </div>
+      <div class="card-body">
+        <span class="article-num">05</span>
+        <h3 class="article-title">Ranger son maquillage sans se prendre la tête</h3>
+        <span class="article-title-en">Organising your makeup without the headache</span>
+        <p class="article-excerpt">Trouver chaque produit du premier coup, à la maison comme en voyage.</p>
+        <button class="article-read">Lire</button>
+      </div>
+    </div>
+
+    <div class="article-card" onclick="openArticle(5)">
+      <div class="card-visual v6">
+        <span class="card-visual-label">Sélection · Voyage</span>
+        <span class="card-visual-num">06</span>
+      </div>
+      <div class="card-body">
+        <span class="article-num">06</span>
+        <h3 class="article-title">7 accessoires voyage beauté que j'emporte partout</h3>
+        <span class="article-title-en">7 travel beauty accessories I never leave without</span>
+        <p class="article-excerpt">Ma sélection personnelle d'objets discrets qui changent vraiment le voyage.</p>
+        <button class="article-read">Lire</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pinterest-section" id="pinterest">
+  <p class="pin-eyebrow">Pinterest</p>
+  <h2 class="pin-title">Inspirations <em>au quotidien</em></h2>
+  <span class="pin-title-en">Daily beauty & travel inspiration on Pinterest</span>
+  <p class="pin-desc">Sélections beauté voyage, idées de rangement et accessoires pratiques — publiés chaque semaine.</p>
+  <a href="https://pinterest.com/latrousseCalme" class="pin-btn" target="_blank">Suivre sur Pinterest ↗</a>
+</section>
+
+<div class="disclosure">
+  <div class="disclosure-inner">
+    <span class="disclosure-label">Mention affiliation / Affiliate disclosure</span>
+    <p class="disclosure-text">
+      Certains liens présents sur ce site peuvent être des liens affiliés. En tant que Partenaire d'Amazon, je suis rémunérée pour les achats éligibles, sans coût supplémentaire pour vous.<br><br>
+      Some links on this site may be affiliate links. As an Amazon Associate, I earn from qualifying purchases at no additional cost to you.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">La Trousse <em>Calme</em></div>
+    <div class="footer-center">
+      <p class="footer-sub">Beauté · Voyage · Organisation &nbsp;·&nbsp; Beauty · Travel · Organisation</p>
+      <a href="mailto:contact@latroussecalme.fr" class="footer-contact">contact@latroussecalme.fr</a>
+    </div>
+    <p class="footer-sub">© 2025 La Trousse Calme</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="article-overlay" id="overlay" onclick="closeIfOutside(event)">
+  <div class="article-modal" id="modal">
+    <button class="modal-close" onclick="closeArticle()">✕</button>
+    <div class="modal-visual" id="modal-visual">
+      <span class="modal-visual-label" id="modal-visual-label"></span>
+      <span class="modal-visual-num" id="modal-visual-num"></span>
+    </div>
+    <div class="modal-content">
+      <span class="modal-num" id="modal-num"></span>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <span class="modal-title-en" id="modal-title-en"></span>
+      <p class="modal-intro" id="modal-intro"></p>
+      <ul class="modal-list" id="modal-list"></ul>
+      <p class="modal-outro" id="modal-outro"></p>
+      <div class="modal-summary">
+        <span class="modal-summary-label">En résumé</span>
+        <div class="modal-summary-points" id="modal-summary"></div>
+      </div>
+      <div class="modal-accessories">
+        <span class="modal-accessories-label">À explorer</span>
+        <div class="accessories-tags" id="modal-accessories"></div>
+      </div>
+      <p class="modal-affiliate">Lien rémunéré. En tant que Partenaire d'Amazon, je suis rémunérée pour les achats éligibles, sans coût supplémentaire pour vous.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const visualColors = {
+    v1: "linear-gradient(135deg,#B07A4F,#C49070)",
+    v2: "linear-gradient(135deg,#7A6355,#B07A4F)",
+    v3: "linear-gradient(135deg,#8A9E8C,#6B8570)",
+    v4: "linear-gradient(135deg,#9A806A,#8A9E8C)",
+    v5: "linear-gradient(135deg,#6B5A4E,#B07A4F)",
+    v6: "linear-gradient(135deg,#5A4E48,#8A7060)"
+  };
+
+  const articles = [
+    {
+      num: "01", visualClass: "v1", visualLabel: "Voyage · Essentiels",
+      title: "5 essentiels beauté pour voyager léger",
+      titleEn: "5 beauty essentials for light travel",
+      intro: "On a toutes fait l'erreur : une trousse trop lourde, des produits qu'on n'utilise jamais, et on arrive à destination épuisée par ses propres bagages. Voyager léger ne veut pas dire se priver — ça veut dire choisir mieux.",
+      points: [
+        { label: "Des flacons rechargeables de qualité", detail: "ceux qui ferment vraiment, adaptés aux formats habituellement acceptés en cabine." },
+        { label: "Un atomiseur pour le parfum", detail: "compact et précis, pour garder son parfum préféré sans emporter le flacon entier." },
+        { label: "Des mini contenants hermétiques", detail: "pour les soins transvasés — crème, baume, sérum. On prépare une fois, on voyage plus sereinement." },
+        { label: "Une trousse transparente", detail: "pour le contrôle de sécurité — on gagne un temps précieux à l'aéroport." },
+        { label: "Un miroir LED compact", detail: "très pratique dans les hôtels mal éclairés." }
+      ],
+      outro: "Cinq objets bien choisis. Une trousse allégée. Un voyage qui commence mieux.",
+      summary: ["Choisir moins, mais mieux — qualité plutôt que quantité.", "Privilégier les accessoires polyvalents qui servent à plusieurs usages.", "Anticiper les contraintes du voyage pour partir plus sereinement."],
+      accessories: ["Flacons rechargeables", "Atomiseur parfum", "Mini contenants hermétiques", "Trousse transparente cabine", "Miroir LED compact"]
+    },
+    {
+      num: "02", visualClass: "v2", visualLabel: "Voyage · Anti-fuite",
+      title: "Comment éviter les fuites dans sa trousse beauté",
+      titleEn: "How to stop leaks in your beauty bag",
+      intro: "On ouvre son sac à l'arrivée et le fond de teint s'est renversé sur le reste. Le gâchis, l'énervement. Pourtant c'est souvent évitable avec les bons réflexes.",
+      points: [
+        { label: "La pression en cabine", detail: "les flacons se dilatent en altitude. Des bouchons silicone universels placés sous le capuchon peuvent considérablement réduire ce risque." },
+        { label: "Les flacons mal fermés", detail: "prendre trente secondes pour vérifier chaque fermeture avant de partir peut éviter beaucoup de dégâts." },
+        { label: "L'orientation des flacons", detail: "des pochettes verticales à compartiments peuvent aider à maintenir les flacons dans la bonne position pendant le transport." }
+      ],
+      outro: "Quelques gestes simples et les bons accessoires peuvent vraiment changer l'expérience du voyage beauté.",
+      summary: ["Anticiper la pression en cabine avec des bouchons silicone adaptés.", "Vérifier les fermetures avant chaque départ — quelques secondes suffisent.", "Choisir un rangement qui maintient les flacons dans la bonne position."],
+      accessories: ["Bouchons silicone anti-fuite", "Pochettes verticales à compartiments", "Flacons à pompe sécurisée", "Sacs étanches de voyage"]
+    },
+    {
+      num: "03", visualClass: "v3", visualLabel: "Voyage · Protection",
+      title: "Préserver ses flacons en verre en voyage",
+      titleEn: "Keeping glass bottles safe while travelling",
+      intro: "Le sérum en verre qu'on adore, l'huile précieuse, l'eau florale — ces produits méritent mieux qu'un emballage improvisé. La solution n'est pas de les laisser à la maison, c'est de les transporter avec plus de soin.",
+      points: [
+        { label: "Les pochettes néoprène rembourrées", detail: "souples, légères, elles absorbent une partie des chocs sans ajouter de poids notable." },
+        { label: "Les housses en silicone moulées", detail: "elles maintiennent le verre et limitent les contacts entre contenants pendant le transport." },
+        { label: "Une trousse avec compartiments semi-rigides", detail: "pour les voyages fréquents, c'est souvent l'option qui change vraiment la donne." }
+      ],
+      outro: "Ses soins préférés méritent d'arriver à destination dans le même état qu'au départ.",
+      summary: ["Protéger le verre avec un rembourrage adapté — néoprène ou silicone.", "Séparer les contenants pour éviter les contacts et les chocs.", "Investir dans une trousse semi-rigide pour les voyages réguliers."],
+      accessories: ["Pochettes néoprène rembourrées", "Housses silicone protection verre", "Trousse compartiments semi-rigides", "Séparateurs de voyage"]
+    },
+    {
+      num: "04", visualClass: "v4", visualLabel: "Routine · Minimaliste",
+      title: "Routine skincare minimaliste en déplacement",
+      titleEn: "A minimalist skincare routine on the go",
+      intro: "Adapter sa routine beauté au voyage est un exercice d'édition. On ne peut pas tout emporter — alors on choisit ce qui compte vraiment, et on laisse le reste.",
+      points: [
+        { label: "Nettoyage", detail: "un nettoyant doux en format solide ou en mini flacon rechargeable. Compact, pratique, sans risque de fuite." },
+        { label: "Hydratation", detail: "une crème polyvalente qui peut faire office de soin de jour et de nuit — un produit au lieu de deux." },
+        { label: "Protection solaire", detail: "une crème teintée avec SPF peut simplifier la routine, tout en gardant une vraie attention à la quantité appliquée pour une protection réelle." }
+      ],
+      outro: "Une routine allégée, des choix réfléchis — et l'esprit un peu plus libre pour profiter du voyage.",
+      summary: ["Garder les trois étapes essentielles : nettoyer, hydrater, protéger.", "Préférer les produits polyvalents qui remplissent plusieurs fonctions.", "Adapter la quantité emportée à la durée réelle du séjour."],
+      accessories: ["Nettoyant solide voyage", "Mini flacons rechargeables", "Crème hydratante polyvalente", "Crème teintée SPF", "Mini spatules cosmétiques"]
+    },
+    {
+      num: "05", visualClass: "v5", visualLabel: "Organisation · Maquillage",
+      title: "Ranger son maquillage sans se prendre la tête",
+      titleEn: "Organising your makeup without the headache",
+      intro: "Un tiroir où tout se mélange, une trousse qu'on vide entièrement pour trouver un crayon — ce désordre s'installe progressivement et on finit par l'accepter. Ce n'est pas une fatalité.",
+      points: [
+        { label: "Un organisateur à compartiments transparents", detail: "pour les produits du quotidien — blush, fards, correcteurs. On voit tout du premier coup d'œil." },
+        { label: "Un porte-pinceaux vertical", detail: "les pinceaux restent accessibles, soignés et à l'abri." },
+        { label: "Une trousse dédiée au voyage", detail: "qu'on ne vide jamais complètement, prête à partir rapidement sans tout réemballer." }
+      ],
+      outro: "Quand chaque produit a un endroit défini, se préparer devient souvent plus agréable — et moins chronophage.",
+      summary: ["Voir ses produits du premier coup d'œil — compartiments transparents.", "Séparer le rangement quotidien du rangement voyage.", "Avoir une trousse toujours prête évite de tout réemballer à chaque départ."],
+      accessories: ["Organisateur compartiments transparents", "Porte-pinceaux vertical", "Plateau de rangement", "Trousse maquillage voyage", "Mat nettoyage pinceaux"]
+    },
+    {
+      num: "06", visualClass: "v6", visualLabel: "Sélection · Voyage",
+      title: "7 accessoires voyage beauté que j'emporte partout",
+      titleEn: "7 travel beauty accessories I never leave without",
+      intro: "Ces sept objets ont changé ma façon de voyager — pas de manière spectaculaire, mais de manière discrète et durable. Ce sont des accessoires qu'on remarque à peine jusqu'au jour où on les oublie.",
+      points: [
+        { label: "Un atomiseur rechargeable", detail: "pour le parfum — compact, précis, gain de place immédiat." },
+        { label: "Des bouchons silicone", detail: "pour certains flacons compatibles — limitent les fuites pendant le transport." },
+        { label: "Un miroir LED compact", detail: "très pratique dans les hôtels mal éclairés." },
+        { label: "Une pochette à bijoux semi-rigide", detail: "pour arriver avec des bijoux intacts et faciles à retrouver." },
+        { label: "Des mini spatules cosmétiques", detail: "pour utiliser chaque gramme de ses soins jusqu'au bout." },
+        { label: "Un porte-pinceaux enroulable", detail: "pour protéger les poils et optimiser la place dans la trousse." },
+        { label: "Une trousse transparente", detail: "adaptée aux contraintes habituelles du voyage en cabine." }
+      ],
+      outro: "Sept objets bien choisis. La praticité guide le choix, sans sacrifier l'esthétique.",
+      summary: ["Chaque accessoire doit résoudre un vrai problème de voyage.", "La praticité guide le choix, sans sacrifier l'esthétique.", "Bien choisir ses accessoires une fois évite beaucoup de stress ensuite."],
+      accessories: ["Atomiseur parfum rechargeable", "Bouchons silicone anti-fuite", "Miroir LED compact", "Pochette bijoux semi-rigide", "Mini spatules cosmétiques", "Porte-pinceaux enroulable", "Trousse transparente cabine"]
+    }
+  ];
+
+  function openArticle(index) {
+    const a = articles[index];
+    document.getElementById('modal-num').textContent = a.num;
+    document.getElementById('modal-title').textContent = a.title;
+    document.getElementById('modal-title-en').textContent = a.titleEn;
+    document.getElementById('modal-intro').textContent = a.intro;
+    document.getElementById('modal-outro').textContent = a.outro;
+    document.getElementById('modal-visual-label').textContent = a.visualLabel;
+    document.getElementById('modal-visual-num').textContent = a.num;
+    document.getElementById('modal-visual').style.background = visualColors[a.visualClass];
+
+    const list = document.getElementById('modal-list');
+    list.innerHTML = '';
+    a.points.forEach(p => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${p.label} —</strong> ${p.detail}`;
+      list.appendChild(li);
+    });
+
+    const summary = document.getElementById('modal-summary');
+    summary.innerHTML = '';
+    a.summary.forEach((s, i) => {
+      const div = document.createElement('div');
+      div.className = 'modal-summary-point';
+      div.innerHTML = `<span class="summary-num">${i + 1}</span><span>${s}</span>`;
+      summary.appendChild(div);
+    });
+
+    const acc = document.getElementById('modal-accessories');
+    acc.innerHTML = '';
+    a.accessories.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'acc-tag';
+      span.textContent = tag;
+      acc.appendChild(span);
+    });
+
+    document.getElementById('overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('modal').scrollTop = 0;
+  }
+
+  function closeArticle() {
+    document.getElementById('overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeIfOutside(e) {
+    if (e.target === document.getElementById('overlay')) closeArticle();
+  }
+
+  function toggleLang() {
+    const enEls = document.querySelectorAll('.hero-sub-en, .section-title-en, .article-title-en, .pin-title-en');
+    enEls.forEach(el => { el.style.display = el.style.display === 'none' ? '' : 'none'; });
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
+</script>
+</body>
+</html>
