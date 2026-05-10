@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Trousse Calme — Bien voyager, bien s'organiser</title>
+<meta name="description" content="Les trouvailles qui simplifient la routine beauté. Sélections voyage, organisation et accessoires pratiques.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --linen: #FAF8F4;
+    --linen-dark: #F0EBE3;
+    --terra: #C47B5A;
+    --terra-light: #E8C4B0;
+    --terra-dark: #9A5C3F;
+    --sage: #8A9E8C;
+    --slate: #3D3430;
+    --slate-mid: #6B5E58;
+    --slate-light: #9C8E88;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--linen);
+    color: var(--slate);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--linen);
+    border-bottom: 0.5px solid var(--linen-dark);
+    padding: 0 2.5rem;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--slate);
+    text-decoration: none;
+  }
+
+  .nav-logo em { font-style: italic; color: var(--terra); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--slate-mid);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover { color: var(--terra); }
+
+  .nav-lang {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--slate-light);
+    cursor: pointer;
+    background: none;
+    border: 0.5px solid var(--linen-dark);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-family: var(--sans);
+    transition: all 0.2s;
+  }
+
+  .nav-lang:hover { border-color: var(--terra); color: var(--terra); }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 5rem 2.5rem 4rem;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-left { padding-top: 2rem; }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--terra);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 0.5px;
+    background: var(--terra);
+    display: block;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero-title em { font-style: italic; color: var(--terra); }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--slate-mid);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-sub-en {
+    font-size: 13px;
+    color: var(--terra);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    display: block;
+    animation: fadeUp 0.7s 0.25s ease both;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--terra);
+    color: var(--linen);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 26px;
+    border-radius: 2px;
+    transition: background 0.2s;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .hero-cta:hover { background: var(--terra-dark); }
+
+  .hero-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+
+  .hero-tile {
+    border-radius: 8px;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 160px;
+  }
+
+  .hero-tile:nth-child(1) { background: var(--terra); grid-row: span 2; }
+  .hero-tile:nth-child(2) { background: var(--linen-dark); }
+  .hero-tile:nth-child(3) { background: var(--sage); }
+
+  .tile-num {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-tile:nth-child(1) .tile-num { color: rgba(250,248,244,0.6); }
+  .hero-tile:nth-child(2) .tile-num { color: var(--slate-light); }
+  .hero-tile:nth-child(3) .tile-num { color: rgba(250,248,244,0.6); }
+
+  .tile-text {
+    font-family: var(--serif);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .hero-tile:nth-child(1) .tile-text { color: #FAF8F4; font-size: 20px; }
+  .hero-tile:nth-child(2) .tile-text { color: var(--slate); font-size: 16px; }
+  .hero-tile:nth-child(3) .tile-text { color: #FAF8F4; font-size: 16px; }
+
+  .articles {
+    padding: 6rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header { margin-bottom: 3rem; }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px;
+    height: 0.5px;
+    background: var(--terra);
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.2;
+  }
+
+  .section-title em { font-style: italic; color: var(--terra); }
+
+  .section-title-en {
+    font-size: 12px;
+    color: var(--slate-light);
+    font-style: italic;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--linen-dark);
+    border: 1px solid var(--linen-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+
+  .article-card {
+    background: var(--linen);
+    padding: 2rem 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-card:hover { background: #FDFCFA; }
+
+  .article-num {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--terra);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .article-num::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--linen-dark);
+  }
+
+  .article-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+    flex: 1;
+  }
+
+  .article-title-en {
+    font-size: 11px;
+    font-style: italic;
+    color: var(--terra);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .article-excerpt {
+    font-size: 12px;
+    color: var(--slate-mid);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-read {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terra);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .article-read::after { content: '→'; }
+  .article-card:hover .article-read { gap: 10px; }
+
+  .pinterest-section {
+    background: var(--slate);
+    padding: 5rem 2.5rem;
+    text-align: center;
+  }
+
+  .pin-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra-light);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0.7;
+  }
+
+  .pin-eyebrow::before, .pin-eyebrow::after {
+    content: '';
+    width: 30px;
+    height: 0.5px;
+    background: var(--terra-light);
+    display: block;
+  }
+
+  .pin-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 300;
+    color: var(--linen);
+    margin-bottom: 0.4rem;
+  }
+
+  .pin-title em { font-style: italic; color: var(--terra-light); }
+
+  .pin-title-en {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--slate-light);
+    margin-bottom: 1.75rem;
+    display: block;
+  }
+
+  .pin-desc {
+    font-size: 14px;
+    color: var(--slate-light);
+    max-width: 380px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+
+  .pin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--terra);
+    color: var(--linen);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 26px;
+    border-radius: 2px;
+    font-family: var(--sans);
+    transition: background 0.2s;
+  }
+
+  .pin-btn:hover { background: var(--terra-dark); }
+
+  .disclosure {
+    padding: 3rem 2.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .disclosure-inner {
+    border-top: 0.5px solid var(--linen-dark);
+    padding-top: 2rem;
+  }
+
+  .disclosure-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .disclosure-text {
+    font-size: 11px;
+    color: var(--slate-light);
+    line-height: 1.8;
+  }
+
+  footer {
+    background: var(--slate);
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--linen);
+  }
+
+  .footer-logo em { font-style: italic; color: var(--terra-light); }
+
+  .footer-sub {
+    font-size: 10px;
+    color: var(--slate-light);
+    letter-spacing: 0.08em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 6rem; gap: 2.5rem; }
+    .hero-right { display: none; }
+    .articles-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1.25rem; }
+    .articles { padding: 4rem 1.25rem; }
+    footer { flex-direction: column; text-align: center; }
+    .nav-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">La Trousse <em>Calme</em></a>
+  <div class="nav-right">
+    <a href="#articles" class="nav-link">Guides</a>
+    <a href="#pinterest" class="nav-link">Pinterest</a>
+    <button class="nav-lang" onclick="toggleLang()">FR / EN</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Beauté · Voyage · Organisation</p>
+    <h1 class="hero-title">Bien voyager,<br><em>bien s'organiser.</em></h1>
+    <p class="hero-sub">Les trouvailles qui simplifient vraiment la routine beauté — pour partir sans stress et rentrer sans désordre.</p>
+    <span class="hero-sub-en">The finds that genuinely simplify your beauty routine — travel light, come back tidy.</span>
+    <a href="#articles" class="hero-cta">Voir les guides →</a>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-tile">
+      <span class="tile-num">Voyage</span>
+      <p class="tile-text">Partir sans laisser ses soins derrière</p>
+    </div>
+    <div class="hero-tile">
+      <span class="tile-num">Organisation</span>
+      <p class="tile-text">Trouver du premier coup</p>
+    </div>
+    <div class="hero-tile">
+      <span class="tile-num">Sélections</span>
+      <p class="tile-text">Des objets qui tiennent leurs promesses</p>
+    </div>
+  </div>
+</section>
+
+<section class="articles" id="articles">
+  <div class="section-header">
+    <div class="section-label">Guides & Sélections</div>
+    <h2 class="section-title">Les trouvailles <em>qui changent tout</em></h2>
+    <span class="section-title-en">Practical guides and curated picks for a simpler beauty routine</span>
+  </div>
+
+  <div class="articles-grid">
+    <a class="article-card" href="#">
+      <span class="article-num">01</span>
+      <h3 class="article-title">5 essentiels beauté pour voyager léger</h3>
+      <span class="article-title-en">5 beauty essentials for light travel</span>
+      <p class="article-excerpt">Ce qu'on emporte vraiment — et ce qu'on peut enfin laisser à la maison. Une sélection resserrée pour une trousse qui ne pèse pas.</p>
+      <span class="article-read">Lire</span>
+    </a>
+
+    <a class="article-card" href="#">
+      <span class="article-num">02</span>
+      <h3 class="article-title">Comment éviter les fuites dans sa trousse beauté</h3>
+      <span class="article-title-en">How to stop leaks in your beauty bag</span>
+      <p class="article-excerpt">Flacons renversés, crèmes répandues — des solutions concrètes et simples pour que ça n'arrive plus jamais.</p>
+      <span class="article-read">Lire</span>
+    </a>
+
+    <a class="article-card" href="#">
+      <span class="article-num">03</span>
+      <h3 class="article-title">Préserver ses flacons en verre en voyage</h3>
+      <span class="article-title-en">Keeping glass bottles safe while travelling</span>
+      <p class="article-excerpt">Sérum, huile, eau florale — les contenants fragiles ont besoin d'une vraie solution. Les accessoires qui font la différence.</p>
+      <span class="article-read">Lire</span>
+    </a>
+
+    <a class="article-card" href="#">
+      <span class="article-num">04</span>
+      <h3 class="article-title">Routine skincare minimaliste en déplacement</h3>
+      <span class="article-title-en">A minimalist skincare routine on the go</span>
+      <p class="article-excerpt">Réduire sans renoncer à l'essentiel. Comment adapter sa routine au voyage sans compromis sur ce qui compte vraiment.</p>
+      <span class="article-read">Lire</span>
+    </a>
+
+    <a class="article-card" href="#">
+      <span class="article-num">05</span>
+      <h3 class="article-title">Ranger son maquillage sans se prendre la tête</h3>
+      <span class="article-title-en">Organising your makeup without the headache</span>
+      <p class="article-excerpt">Des solutions de rangement simples pour trouver chaque produit du premier coup — à la maison comme en déplacement.</p>
+      <span class="article-read">Lire</span>
+    </a>
+
+    <a class="article-card" href="#">
+      <span class="article-num">06</span>
+      <h3 class="article-title">7 accessoires voyage beauté que j'emporte partout</h3>
+      <span class="article-title-en">7 travel beauty accessories I never leave without</span>
+      <p class="article-excerpt">Ma sélection personnelle — des objets discrets, bien pensés, qui ont vraiment changé ma façon de voyager.</p>
+      <span class="article-read">Lire</span>
+    </a>
+  </div>
+</section>
+
+<section class="pinterest-section" id="pinterest">
+  <p class="pin-eyebrow">Pinterest</p>
+  <h2 class="pin-title">Inspirations <em>au quotidien</em></h2>
+  <span class="pin-title-en">Daily beauty & travel inspiration on Pinterest</span>
+  <p class="pin-desc">Sélections beauté voyage, idées de rangement et accessoires pratiques — publiés chaque semaine.</p>
+  <a href="https://pinterest.com/latrousseCalme" class="pin-btn" target="_blank">Suivre sur Pinterest ↗</a>
+</section>
+
+<div class="disclosure">
+  <div class="disclosure-inner">
+    <span class="disclosure-label">Mention affiliation / Affiliate disclosure</span>
+    <p class="disclosure-text">
+      Certains liens présents sur ce site peuvent être des liens affiliés. En tant que Partenaire Amazon, La Trousse Calme peut percevoir une commission sur les achats éligibles, sans coût supplémentaire pour vous.<br><br>
+      Some links on this site may be affiliate links. As an Amazon Associate, La Trousse Calme earns from qualifying purchases at no additional cost to you.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">La Trousse <em>Calme</em></div>
+  <p class="footer-sub">Beauté · Voyage · Organisation &nbsp;·&nbsp; Beauty · Travel · Organisation</p>
+</footer>
+
+<script>
+  function toggleLang() {
+    const enEls = document.querySelectorAll('.hero-sub-en, .section-title-en, .article-title-en, .pin-title-en');
+    enEls.forEach(el => {
+      el.style.display = el.style.display === 'none' ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
