@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23B07A4F'/><text x='16' y='21' font-family='Georgia,serif' font-size='12' font-weight='400' fill='%23F5F1EB' text-anchor='middle'>TC</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --linen: #F5F1EB; --linen-dark: #EAE4DA; --terra: #B07A4F; --slate: #2B2522; --slate-mid: #6B5A4E; --slate-light: #9C8E88; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif; }
+  body { background: var(--linen); color: var(--slate); font-family: var(--sans); font-weight: 300; line-height: 1.8; font-size: 16px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--linen); border-bottom: 0.5px solid var(--linen-dark); padding: 0 2rem; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 300; color: var(--slate); text-decoration: none; }
+  .nav-logo em { font-style: italic; color: var(--terra); }
+  .nav-back { font-size: 11px; letter-spacing: 0.1em; color: var(--slate-light); text-decoration: none; text-transform: uppercase; }
+  .article-hero { padding: 7rem 2rem 3rem; max-width: 720px; margin: 0 auto; }
+  .article-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+  .article-eyebrow::before { content: ''; width: 20px; height: 0.5px; background: var(--terra); display: block; }
+  .article-num { font-family: var(--serif); font-size: 80px; font-weight: 300; color: var(--linen-dark); line-height: 1; margin-bottom: -1rem; }
+  .article-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 48px); font-weight: 300; color: var(--slate); line-height: 1.2; margin-bottom: 1rem; }
+  .article-title em { font-style: italic; color: var(--terra); }
+  .article-subtitle { font-size: 15px; color: var(--slate-mid); line-height: 1.8; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 0.5px solid var(--linen-dark); }
+  .article-body { max-width: 720px; margin: 0 auto; padding: 0 2rem 4rem; }
+  .article-intro { font-size: 17px; color: var(--slate-mid); line-height: 1.9; margin-bottom: 2.5rem; }
+  .points-list { list-style: none; margin-bottom: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .points-list li { display: flex; align-items: flex-start; gap: 16px; padding: 1.25rem 1.5rem; background: white; border-radius: 8px; border-left: 2px solid var(--terra); }
+  .point-num { font-family: var(--serif); font-size: 28px; color: var(--terra); font-weight: 300; line-height: 1; flex-shrink: 0; }
+  .point-content strong { display: block; font-size: 15px; font-weight: 500; color: var(--slate); margin-bottom: 4px; }
+  .point-content span { font-size: 14px; color: var(--slate-mid); line-height: 1.7; }
+  .article-outro { font-size: 16px; color: var(--slate-mid); font-style: italic; margin-bottom: 2.5rem; padding: 1.5rem 2rem; background: var(--linen-dark); border-radius: 8px; }
+  .summary-box { background: var(--slate); border-radius: 10px; padding: 2rem; margin-bottom: 2.5rem; }
+  .summary-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 1.25rem; display: block; }
+  .summary-points { display: flex; flex-direction: column; gap: 0.75rem; }
+  .summary-point { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: #E8DDD4; line-height: 1.6; }
+  .summary-n { font-family: var(--serif); font-size: 24px; color: var(--terra); font-weight: 300; line-height: 1; flex-shrink: 0; }
+  .accessories-box { border: 0.5px solid var(--linen-dark); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+  .accessories-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); margin-bottom: 1rem; display: block; }
+  .accessories-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .acc-tag { font-size: 12px; color: var(--slate-mid); background: var(--linen-dark); padding: 5px 12px; border-radius: 20px; }
+  .affiliate-note { font-size: 11px; color: var(--slate-light); font-style: italic; line-height: 1.8; padding-top: 1.5rem; border-top: 0.5px solid var(--linen-dark); margin-bottom: 3rem; }
+  .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--linen-dark); border: 0.5px solid var(--linen-dark); border-radius: 8px; overflow: hidden; margin-bottom: 2rem; }
+  .article-nav a { background: var(--linen); padding: 1.25rem 1.5rem; text-decoration: none; color: inherit; }
+  .article-nav-label { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.4rem; display: block; }
+  .article-nav-title { font-family: var(--serif); font-size: 15px; color: var(--slate); line-height: 1.4; }
+  .article-nav .next { text-align: right; }
+  footer { background: var(--slate); padding: 2rem; text-align: center; }
+  .footer-logo { font-family: var(--serif); font-size: 18px; color: #F5F1EB; margin-bottom: 0.5rem; }
+  .footer-logo em { font-style: italic; color: var(--terra); }
+  .footer-sub { font-size: 10px; color: var(--slate-light); }
+  .footer-email { font-size: 12px; color: var(--terra); text-decoration: none; display: block; margin-top: 0.5rem; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">La Trousse <em>Calme</em></a>
+  <a href="index.html" class="nav-back">← Tous les guides</a>
+</nav>
+<div class="article-hero">
+  <div class="article-eyebrow">Guide 06</div>
+  <div class="article-num">06</div>
+  <h1 class="article-title">Article <em>06</em></h1>
+  <p class="article-subtitle">Contenu de l'article 06 — La Trousse Calme.</p>
+</div>
+<div class="article-body">
+  <p class="article-intro">Contenu en cours de rédaction.</p>
+  <div class="article-nav">
+    <a href="index.html"><span class="article-nav-label">← Accueil</span><span class="article-nav-title">Tous les guides</span></a>
+    <a href="index.html" class="next"><span class="article-nav-label">Accueil →</span><span class="article-nav-title">La Trousse Calme</span></a>
+  </div>
+</div>
+<footer>
+  <div class="footer-logo">La Trousse <em>Calme</em></div>
+  <p class="footer-sub">Beauté · Voyage · Organisation</p>
+  <a href="mailto:contact@latroussecalme.fr" class="footer-email">contact@latroussecalme.fr</a>
+</footer>
+</body>
+</html>
